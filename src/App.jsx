@@ -6,8 +6,8 @@ import {GlobalCss} from './styles/GlobalCss';
 import Nav from './components/Nav';
 
 const theme = {
-  color:{
-    primary:"aliceblue",
+  colors:{
+    primary:"palegreen",
   }
 }
 
