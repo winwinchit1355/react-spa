@@ -24,8 +24,24 @@ const UlDiv = styled.div`
   padding:0 10px;
 `;
 
-const Li = styled.div`
-  text-decoration:none;
+const Li_style = styled.li`
+  list-style:none;
+  padding:0 10px;
+
+  &:after{
+    content:'';
+    display:block;
+    height:3px;
+    background-color:hotpink;
+    transform:scaleX(0);
+    transition: 300ms;
+  }
+
+  &:hover{
+    &:after{
+      transform:scaleX(1);
+    }
+  }
 `;
 
 const H1_style = {
@@ -47,8 +63,8 @@ export default function Nav() {
       </LeftDiv>
       <RightDiv>
         <UlDiv>
-          <Li><a style={ATag_style} href="#">Download</a></Li>
-          <Li><a style={ATag_style} href="#">Logout</a></Li>
+          <Li_style><a style={ATag_style} href="#">Download</a></Li_style>
+          <Li_style><a style={ATag_style} href="#">Logout</a></Li_style>
         </UlDiv>
       </RightDiv>
     </FlexDiv>

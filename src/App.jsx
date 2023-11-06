@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { Container } from './styles/Shares';
 import { ThemeProvider } from 'styled-components';
 import {GlobalCss} from './styles/GlobalCss';
-import Nav from './components/Nav';
+import Home from './components/Home';
 
 const theme = {
   colors:{
@@ -19,7 +19,7 @@ function App() {
       <Container>
         <Router>
           <Routes>
-            <Route path="/" element={<Nav />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </Router>
       </Container>
