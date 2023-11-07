@@ -13,7 +13,6 @@ const theme = {
 }
 
 function App() {
-
   return (
     <ThemeProvider theme={theme} >
       <GlobalCss />
