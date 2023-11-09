@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import bannerImage from '../assets/images/banner-image.jpg'
 import styled from 'styled-components';
+import { Button } from '../styles/Shares';
 
 const FlexDiv = styled.div`
   display:flex;
