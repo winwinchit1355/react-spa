@@ -2,7 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import bannerImage from '../assets/images/banner-image.jpg'
 import styled from 'styled-components';
-import { Button } from '../styles/Shares';
+
 
 const FlexDiv = styled.div`
   display:flex;
@@ -18,21 +18,22 @@ const Flex = styled.div`
     padding-top:50px;
 `;
 const Button = styled.div`
-    display:inline-block;
-    padding:0.5em 1.45em;
-    margin:0.1em;
-    border:0.15em solid hotpink;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-family:'Segoe UI','Roboto',sans-serif;
-    font-weight:400;
-    color:#fff;
-    background-color:hotpink;
-    text-align:center;
-    position:relative;
-    cursor:pointer;
-    border-radius:4px;
-
+    *{
+        display:inline-block;
+        padding:0.5em 1.45em;
+        margin:0.1em;
+        border:0.15em solid hotpink;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Segoe UI','Roboto',sans-serif;
+        font-weight:400;
+        color:#fff;
+        background-color:hotpink;
+        text-align:center;
+        position:relative;
+        cursor:pointer;
+        border-radius:4px;
+    }
     &:hover{
         border-color:blue;
         background-color:blue;
@@ -40,6 +41,7 @@ const Button = styled.div`
 `;
 
 export default function Home() {
+
   return (
     <div>
         <Nav />

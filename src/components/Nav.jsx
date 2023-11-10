@@ -1,6 +1,7 @@
 import React from 'react';
 import logoImg from '../assets/images/logo-social.png';
 import styled from 'styled-components';
+import { useLoginContext } from './store/LoginContextApi';
 
 const FlexDiv = styled.div`
   display:flex;
@@ -55,6 +56,10 @@ const ATag_style = {
 };
 
 export default function Nav() {
+  const {loggedIn, setLoggedIn} = useLoginContext();
+  const logout = () =>{
+    setLoggedIn(false);
+  }
   return (
     <FlexDiv>
       <LeftDiv>
@@ -64,7 +69,10 @@ export default function Nav() {
       <RightDiv>
         <UlDiv>
           <Li_style><a style={ATag_style} href="#">Download</a></Li_style>
-          <Li_style><a style={ATag_style} href="#">Logout</a></Li_style>
+          {
+            loggedIn?<Li_style onClick={logout}><a style={ATag_style} href="#">Logout</a></Li_style>:<Li_style ><a style={ATag_style} href="#">Login</a></Li_style>
+          }
+          
         </UlDiv>
       </RightDiv>
     </FlexDiv>
