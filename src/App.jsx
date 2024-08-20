@@ -4,18 +4,22 @@ import { Container } from "./styles/Shares";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import './App.css';
+import { GlobalCSS } from "./styles/GlobalCSS";
+import Nav from "./components/Nav";
 const theme = {
   colors: {
-    primary: "aliceblue"
+    primary: "#191919",
   }
 }
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Header />
-        <Footer />
-      </Container>
+      <GlobalCSS />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Nav/>} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   )
 }
