@@ -38,17 +38,17 @@ const ATAG_STYLE = {
 
 const Nav = () => {
     return (
-        <FlexDiv>
+        <FlexDiv class="navbar">
             <LeftDiv>
                 <img src={logoImg} height="30px" alt="logo" />
                 <strong style={H1_STYLE}>SPA Project</strong>
             </LeftDiv>
             <RightDiv>
                 <UlDiv>
-                    <li><a style={ATAG_STYLE} href="#">Home</a></li>
+                    <li><a style={ATAG_STYLE} href="/">Home</a></li>
                     <li><a style={ATAG_STYLE} href="#">About</a></li>
                     <li><a style={ATAG_STYLE} href="#">Contact</a></li>
-                    <li><a style={ATAG_STYLE} href="#">Logout</a></li>
+                    <li><a style={ATAG_STYLE} href="logout">Logout</a></li>
                 </UlDiv>
             </RightDiv>
         </FlexDiv>
