@@ -1,6 +1,8 @@
-import React from 'react'
-import Nav from './Nav'
-import styled from 'styled-components'
+import {useRef} from 'react';
+import Nav from './Nav';
+import styled from 'styled-components';
+import { useLoginContext } from "../store/LoginContextApi.jsx";
+import {useNavigate} from "react-router-dom";
 
 const SectionDiv = styled.div`
     background-color:${(props)=>props.theme.colors.secondary};
@@ -37,15 +39,30 @@ const Button = styled.button`
     }
 `;
 export default function Login() {
+    const navigate = useNavigate();
+    const phoneRef = useRef();
+    const passwordRef = useRef();
+    const {loggedIn,setLoggedIn} = useLoginContext();
+    const login = (e) =>{
+        e.preventDefault();
+        let user = {
+            phone: phoneRef.current.value,
+            password: passwordRef.current.value
+        };
+        phoneRef.current.value="";
+        passwordRef.current.value="";
+        setLoggedIn(true);
+        navigate('home');
+    }
   return (
     <>
         <Nav />
         <SectionDiv>
             <H1Style>Login to View Home Page</H1Style>
-            <form>
-                <InputStyle type="tel" placeholder='Phone' />
-                <InputStyle type="password" placeholder='Password' />
-                <Button>Login</Button>
+            <form onSubmit={login}>
+                <InputStyle type="tel" placeholder='Phone' ref={phoneRef} />
+                <InputStyle type="password" placeholder='Password' ref={passwordRef} />
+                <Button type="submit">Login</Button>
             </form>
         </SectionDiv>
     </>

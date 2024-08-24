@@ -7,7 +7,9 @@ import './App.css';
 import { GlobalCSS } from "./styles/GlobalCSS";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Logout from "./components/Logout";
+import LoginContextProvider from "./store/LoginContextApi";
+import RouteGuard from "./helpers/RouteGuard";
+import About from "./components/About";
 const theme = {
   colors: {
     primary: "#191919",
@@ -18,13 +20,19 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalCSS />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login/>} />
-          <Route path="home" element={<Home/>} />
-          <Route path="logout" element={<Logout/>} />
-        </Routes>
-      </Router>
+      <LoginContextProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login/>} />
+            <Route path="home" element={
+              <RouteGuard><Home/></RouteGuard>
+            } />
+            <Route path="about" element={
+              <RouteGuard><About/></RouteGuard>
+            } />
+          </Routes>
+        </Router>
+      </LoginContextProvider>
     </ThemeProvider>
   )
 }

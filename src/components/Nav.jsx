@@ -1,5 +1,7 @@
 import logoImg from "../images/logo.jpg";
 import styled from 'styled-components';
+import { useLoginContext } from "../store/LoginContextApi";
+import { Link, useNavigate } from "react-router-dom";
 
 const FlexDiv = styled.div`
     display: flex;
@@ -37,18 +39,24 @@ const ATAG_STYLE = {
 };
 
 const Nav = () => {
+    const navigate = useNavigate();
+    const {loggedIn,setLoggedIn} = useLoginContext();
+    const loginHandle = () =>{
+        setLoggedIn(false);
+        navigate('/')
+    }
     return (
-        <FlexDiv class="navbar">
+        <FlexDiv className="navbar">
             <LeftDiv>
                 <img src={logoImg} height="30px" alt="logo" />
                 <strong style={H1_STYLE}>SPA Project</strong>
             </LeftDiv>
             <RightDiv>
                 <UlDiv>
-                    <li><a style={ATAG_STYLE} href="/">Home</a></li>
+                    <li><Link style={ATAG_STYLE} to="/home" >Home</Link></li>
                     <li><a style={ATAG_STYLE} href="#">About</a></li>
                     <li><a style={ATAG_STYLE} href="#">Contact</a></li>
-                    <li><a style={ATAG_STYLE} href="logout">Logout</a></li>
+                    <li><a style={ATAG_STYLE} href="#" onClick={loginHandle}>{loggedIn? "Logout":"Login"}</a></li>
                 </UlDiv>
             </RightDiv>
         </FlexDiv>
